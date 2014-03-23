@@ -1,6 +1,6 @@
 {
-  "name":"Experiment",
-  "description":"Experiments on Firefox OS",
+  "name":"Minimal",
+  "description":"Minimal packageable FirefoxOS webapp",
   "version":1,
   "icons":{
     "32":"/icons/icon-32.png",
@@ -14,10 +14,6 @@
   "developer":{
     "name":"Pablo Brasero",
     "url":"http://www.pablobm.com"
-  },
-  "type":"privileged",
-  "permissions":{
-    "geolocation":{"description":"To locate you on the map"}
   },
   "default_locale":"en",
   "launch_path":"/index.html"
