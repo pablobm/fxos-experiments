@@ -47,22 +47,25 @@ var nextLat = generator(initialLat)
 
 function simplify() {
   var points = polyline.getLatLngs().map(function(ll) { return L.point(ll.lng, ll.lat)})
-  var newPoints = L.LineUtil.simplify(points, 0.00001).map(function(p){ return L.latLng(p.y, p.x) })
+  var newPoints = L.LineUtil.simplify(points, 0.00002).map(function(p){ return L.latLng(p.y, p.x) })
   polyline.setLatLngs(newPoints)
 
   markers.forEach(function(m){ map.removeLayer(m) })
   markers = []
   polyline.getLatLngs().forEach(function(ll){
-    var marker = L.marker(ll).addTo(map)
-    markers.push(marker)
+    markers.push(createMarker(ll))
   })
 }
 
 function positionSuccess(position) {
   var p = position.coords
   var ll = [p.latitude, p.longitude]
-  var marker = L.marker(ll).addTo(map)
-  markers.push(marker)
+  markers.push(createMarker(ll))
   polyline.addLatLng(ll)
   map.fitBounds(polyline.getBounds())
+}
+
+function createMarker(ll) {
+  var div = L.divIcon({className: 'marker', html: 'blah', iconAnchor: [0, 0], iconSize: null})
+  return L.marker(ll, {icon: div}).addTo(map)
 }
