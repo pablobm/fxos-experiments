@@ -13,3 +13,7 @@ Print position on the map, with some additional info.
 ## Douglas-Peucker
 
 Draw many markers on a long polyline on a map. Watch performance. Try simplifying the polyline.
+
+## Quit
+
+How to close current application.
