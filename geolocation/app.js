@@ -1,6 +1,6 @@
 // create a map in the "map" div, set the view to a given place and zoom
 var map = L.map('map').setView([51.505, -0.09], 13);
-var markers = []
+var markers = L.featureGroup().addTo(map).bringToFront()
 var polyline = L.polyline([]).addTo(map)
 var startTime = new Date();
 
@@ -13,8 +13,8 @@ document.getElementById('reset')
   .addEventListener('click', reset)
 
 function reset() {
-  markers.forEach(function(m){ map.removeLayer(m) })
-  markers = []
+  markers.eachLayer(function(m){ map.removeLayer(m) })
+  markers.clearLayers()
   polyline.setLatLngs([])
   startTime = new Date()
 }
@@ -32,8 +32,10 @@ function positionSuccess(position) {
   var ll = [p.latitude, p.longitude]
   var html = elapsedTimeStr() + "<br>" + p.accuracy + 'm'
   var timeIcon = L.divIcon({className: 'time-marker', html: html, iconAnchor: [0, 0], iconSize: null})
-  var marker = L.marker(ll, {icon: timeIcon}).addTo(map)
-  markers.push(marker)
+  var marker = L.marker(ll, {icon: timeIcon})
+    .addTo(map)
+    .setZIndexOffset(99)
+  markers.addLayer(marker)
   polyline.addLatLng(ll)
   map.setView(ll, 15)
 }
