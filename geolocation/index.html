@@ -13,6 +13,13 @@
       margin: 0;
       padding: 0;
     }
+    #controls {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      padding: .5em;
+      background: black;
+    }
     .time-marker {
       width: 4em;
       height: 2em;
@@ -27,6 +34,9 @@
 </head>
 <body>
   <div id="map"></div>
+  <div id="controls">
+    <input type="button" value="Reset" id="reset">
+  </div>
   <script src="./app.js"></script>
 </body>
 </html>

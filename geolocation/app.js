@@ -9,6 +9,16 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+document.getElementById('reset')
+  .addEventListener('click', reset)
+
+function reset() {
+  markers.forEach(function(m){ map.removeLayer(m) })
+  markers = []
+  polyline.setLatLngs([])
+  startTime = new Date()
+}
+
 var positionOptions = {
   enableHighAccuracy: true,
   maximumAge        : 30000,
