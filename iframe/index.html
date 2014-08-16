@@ -7,15 +7,17 @@
 <body>
   <form id="controls">
     <p id="buttons">
-      <input type="button" name="purge-history" value="Purge history">
-      <input type="button" name="go-to-address" value="Go to address">
+      <input type="button" name="purge-history" value="Purge history" id="purge-btn">
+      <input type="submit" name="go-to-address" value="Go to address" id="go-btn">
     </p>
     <p id="location-bar">
-      <input type="text" name="location">
+      <input type="text" name="location" id="location">
     </p>
+    <p id="messages">messages here...</p>
   </form>
   <div id="content">
-    <iframe src="http://feliz1984.org"></iframe>
+    <iframe mozbrowser remote></iframe>
   </div>
+  <script src="./app.js"></script>
 </body>
 </html>

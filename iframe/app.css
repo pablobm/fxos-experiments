@@ -22,14 +22,14 @@ p {
 #location-bar {
   margin-bottom: 0;
 }
-[name=location] {
+#location {
   width: 100%;
 }
 
 #content {
   width: 100%;
   height: 100%;
-  padding-top: 4em;
+  padding-top: 5.5em;
 }
 
 iframe {
