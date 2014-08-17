@@ -15,6 +15,12 @@
     "name":"Pablo Brasero",
     "url":"http://www.pablobm.com"
   },
+  "type":"privileged",
+  "permissions":{
+    "browser":{
+      "description":"Blah"
+    }
+  },
   "default_locale":"en",
   "launch_path":"/index.html"
 }
