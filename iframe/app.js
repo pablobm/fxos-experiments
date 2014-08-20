@@ -30,9 +30,16 @@ var goToLocation = function () {
 };
 
 var purge = function () {
+  var req;
   setMessage('about to purge');
   try {
-    iframe.purgeHistory();
+    req = navigator.mozApps.getSelf();
+    req.onerror = function () {
+      setMessage("error: " + req.error.name);
+    };
+    req.onsuccess = function () {
+      setMessage("success? " + req.result.clearBrowserData());
+    }
     setMessage('allegedly purged');
   }
   catch (e) {
