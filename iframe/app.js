@@ -23,6 +23,9 @@ var stopPropagationAnd = function (nextAction) {
 
 var goToLocation = function () {
   var newLocation = locField.value;
+  if (!newLocation.match(/^https?:/)) {
+    newLocation = 'http://' + newLocation;
+  }
   iframe.setAttribute('src', newLocation);
 };
 
